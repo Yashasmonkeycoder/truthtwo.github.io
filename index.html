@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html style="margin:0;" >
+  <head >
+  <style >
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,600&display=swap');
+    body{
+      background-image: linear-gradient(to bottom right, #66bad0, #eeeb86, #e6a9c6);
+      font-family: 'Nunito', sans-serif;
+      border: solid black 15px;
+      margin: 10;
+      padding: 20px;
+      display:block;
+    }
+    input{
+      width:40px;
+      height: 40px;
+      border: solid black 4px;
+      border-radius: 15px;
+    }
+    .popup .overlay {
+     position:fixed;
+     top:0px;
+     left:0px;
+     width:100vw;
+     height:100vh;
+     background:rgba(0,0,0,0.7);
+     z-index:1;
+     display:none;
+}
+ 
+.popup .content {
+  transform: scale(1.8);
+  font-size: 19px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  background:#fff;
+  width:140%;
+  max-width:500px;
+  height:250px;
+  z-index:2;
+  text-align:center;
+  padding:20px;
+  box-sizing:border-box;
+  font-family:"Open Sans",sans-serif;
+}
+ 
+.popup .close-btn {
+  cursor:pointer;
+  position:absolute;
+  right:20px;
+  top:20px;
+  width:30px;
+  height:30px;
+  background:#222;
+  color:#fff;
+  font-size:25px;
+  font-weight:600;
+  line-height:30px;
+  text-align:center;
+  border-radius:50%;
+}
+ 
+.popup.active .overlay {
+  display:block;
+}
+ 
+.popup.active .content {
+  transition:all 300ms ease-in-out;
+  transform:translate(-50%,-50%) scale(1);
+}
+ 
+button {
+  font-style:uppercase;
+  width:250px;
+  height: 80px;
+  padding:15px;
+  font-size:35px;
+  border:2px solid #222;
+  color:#222;
+  background:#fff;
+  border-radius:15px;
+}
+@keyframes animo{
+  0%{background-color: red;}
+  100%{background-color: white;}
+}
+.thesec{
+  animation-name: animo;
+  animation-duration: 0.5s;
+  animation-iteration-count: 5;
+}
+  </style>
+</head>
+  <body id="thefir" style="font-size:55px; font-style:itallic; text-decoration-thickness: 10px; color:#414a18;">
+    <label >1.Are you a good person?</label></br></br>
+    <input onclick="qoy()" type="checkbox" name="q1" id="qoney" />Yes
+      <input onclick="qon()" type="checkbox" name="q1" id="qonen" />No</br></br></br>
+      <label >2. Will you kill a street dog which is very kind, for 80,000$ ?</label></br>
+    <input onclick="qtoy()" type="checkbox" name="q2" id="qtoy" />Yes 
+      <input onclick="qton()" type="checkbox" name="q2" id="qton" />No</br></br>
+      <label >3.Will you slap your mother if she says to do so?</label></br></br>
+    <input onclick="qthy()" type="checkbox" name="q1" id="qthy" />Yes 
+      <input onclick="qthn()" type="checkbox" name="q1" id="qthn" />No</br></br>
+  <label >4.Will you leave your best friend alone in a forever cage if you have an offer of becoming a millionaire under a thiefs group?</label></br></br>
+    <input onclick="qfoy()" type="checkbox" name="q1" id="qfoy" />Yes
+      <input onclick="qfon()" type="checkbox" name="q1" id="qfon" />No</br></br>
+  <label >5.Will you sacrifice yourself for your parent or children in any ways?</label></br></br>
+    <input onclick="qffy()" type="checkbox" name="q1" id="qffy" />Yes
+      <input onclick="qffn()" type="checkbox" name="q1" id="qffn" />No</br></br>
+     <div class="popup" id="popup-1">
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="close-btn" onclick="togglePopup()">×</div>
+    <h1 id="maino">error!</h1>
+    <p id="mainto">something went wrong</p>
+  </div>
+</div>
+   <button onclick="submit()" >Submit</button>
+  </body>
+  <body id="thesec" style="display:none;">
+    <h1 style="transform: translate(-50%,-50%); position: alternate;" id="theseco">5..</h1>
+   </body>
+</html>
+<script >
+  var cg = 0;
+  var count = 4;
+  var cb = 0;
+  function qoy(){
+    document.getElementById("qonen").checked=false;
+  }
+  function qon(){
+    document.getElementById("qoney").checked=false;
+  }
+  function qtoy(){
+    document.getElementById("qton").checked=false;
+  }
+  function qton(){
+    document.getElementById("qtoy").checked=false;
+  }
+  function qthy(){
+    document.getElementById("qthn").checked=false;
+  }
+  function qthn(){
+    document.getElementById("qthy").checked=false;
+  }
+  function qfoy(){
+    document.getElementById("qfon").checked=false;
+  }
+  function qfon(){
+    document.getElementById("qfoy").checked=false;
+  }
+  function qffy(){
+    document.getElementById("qffn").checked=false;
+  }
+  function qffn(){
+    document.getElementById("qffy").checked=false;
+  }
+  function togglePopup(){
+  document.getElementById("popup-1").classList.toggle("active");
+}
+  function submit(){
+    cb=0;
+    cg=0;
+    if(document.getElementById("qoney").checked ==true){
+      cg+=1;
+    }
+    if(document.getElementById("qonen").checked==true){
+      cb+=1;
+    }
+    if(document.getElementById("qtoy").checked==true){
+      cg+=1;
+    }
+    if(document.getElementById("qton").checked==true){
+      cb+=1;
+    }
+    if(document.getElementById("qthy").checked==true){
+      cg+=1;
+    }
+    if(document.getElementById("qthn").checked==true){
+      cb+=1;
+    }
+    if(document.getElementById("qfoy").checked==true){
+      cg+=1;
+    }
+    if(document.getElementById("qfon").checked==true){
+      cb+=1;
+    }
+    if(document.getElementById("qffy").checked==true){
+      cg+=1;
+    }
+    if(document.getElementById("qffn").checked==true){
+      cb+=1;
+    }
+    if(cb+cg < 5){
+      alert("please answer all questions");
+    }
+    else{
+      if(cg >= 4){
+        document.getElementById("maino").innerHTML="GREAT!"
+        document.getElementById("mainto"). innerHTML="You have a very good heart 💖"
+        document.getElementById("popup-1").classList.toggle("active");
+        if(document.getElementById("qffy").checked==false){
+            alert("don't worry.. the answer of fifth question depends on you..");
+        }
+      }
+      if(cg >= 2 && cg < 4){
+        document.getElementById("maino").innerHTML="GOOD!"
+        document.getElementById("mainto"). innerHTML="You are more than good compared to those you doesn't care 🙂"
+        document.getElementById("popup-1").classList.toggle("active");
+        if(document.getElementById("qffy").checked==false){
+            alert("don't worry.. the answer of fifth question depends on you..");
+        }
+      }
+      if(cg <= 2 && cg > 0){
+        document.getElementById("maino").innerHTML="😔!"
+        document.getElementById("mainto"). innerHTML="I think you are distributed or anything.. i don't know why you answered like that 😔"
+        document.getElementById("popup-1").classList.toggle("active");
+        if(document.getElementById("qffy").checked==false){
+            alert("don't worry.. the answer of fifth question depends on you..");
+        }
+      }
+      if(cg == 0){
+        document.getElementById("maino").innerHTML="WHY!"
+        document.getElementById("mainto"). innerHTML="Don't you not care to be good, these things are all bad for being supported..💔"
+        document.getElementById("popup-1").classList.toggle("active");
+        if(document.getElementById("qffy").checked==false){
+            alert("don't worry.. the answer of fifth question depends on you..");
+        }
+        setTimeout(function submit(){
+          document.getElementById("popup-1").classList.toggle("active");
+          setInterval(function submit(){
+          count-=1;
+          
+         document.getElementById("maino").innerHTML="Counting to launch.."
+          document.getElementById("mainto").innerHTML=count+"..."
+          if(count<=0){
+            window.close();
+            window.close();
+            location.quit();
+          }
+        },1000);
+        },5000);
+        
+        
+      }
+      if(cg ==0 && cb == 0){
+        alert("something went wrong please don't consider the forwarded action 😣");
+      }
+    }
+  }
+</script>
